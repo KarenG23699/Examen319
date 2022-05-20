@@ -1,0 +1,16 @@
+open System
+
+let s = calc.suma 9 8
+    printfn "9+8 = %i" s
+let r = calc.resta 9 8
+    printfn "9-8 = %i" r
+let m = calc.mul 9 8
+    printfn "9*8 = %i" m
+let d = calc.div 10 5
+    printfn "10/5 = %i" d
+    
+module calc =
+let suma x y = x+y
+let resta x y = x-y
+let mul x y = x*y
+let div x y = x/y
