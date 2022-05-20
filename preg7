@@ -1,0 +1,17 @@
+getnum::IO Int
+num = do
+  s <- getLine
+  return (read s)
+
+main = do
+  putStr("Numero 1:\n")
+  num <- num
+  putStr("Numero 2:\n")
+  nume <- num
+  let suma=[c+d | c <- [num], d <- [nume]]
+  let resta=[c-d | c <- [num], d <- [nume]]
+  let mul=[c*d | c <- [num], d <- [nume]]
+  let div=[c `div` d | c <- [num], d <- [nume]]
+  let resultado="Suma: "++suma++"\n"++" Resta: "++resta++"\n"++" Multiplicacion: "++mul++"\n"++" Division: "++div
+  putStr(show(resultado))
+  main
