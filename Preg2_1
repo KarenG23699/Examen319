@@ -1,0 +1,123 @@
+using System;
+using System.Windows.Forms;
+public class Programa
+{
+ static void Main()
+ {
+ FormularioPrincipal formPrincipal = new FormularioPrincipal();
+ Application.Run(formPrincipal);
+ }
+}
+public class FormularioPrincipal : Form
+{
+TextBox textNumero1;
+ TextBox textNumero2;
+ Label labelResultado;
+ Button buttonSumar;
+ Button buttonRestar;
+ Button buttonMultiplicar;
+ Button buttonDividir;
+public FormularioPrincipal()
+ {
+ InicializarComponente();
+ }
+void InicializarComponente()
+ {
+this.Text = "Operatoria";
+ this.Height = 250;
+ textNumero1 = new TextBox();
+ textNumero1.Left = 100;
+ textNumero1.Top = 20;
+ this.Controls.Add(textNumero1);
+
+ textNumero2 = new TextBox();
+ textNumero2.Left = 100;
+ textNumero2.Top = 40;
+ this.Controls.Add(textNumero2);
+
+ labelResultado = new Label();
+ labelResultado.Left = 100;
+ labelResultado.Top = 60;
+ labelResultado.Text = "0";
+ this.Controls.Add(labelResultado);
+ buttonSumar = new Button();
+ buttonSumar.Click += new EventHandler(ButtonSumarClick);
+ buttonSumar.Text = "Sumar";
+ buttonSumar.Left = 50;
+ buttonSumar.Top = 100;
+ this.Controls.Add(buttonSumar);
+
+ buttonRestar = new Button();
+ buttonRestar.Click += new EventHandler(ButtonRestarClick);
+ buttonRestar.Text = "Restar";
+ buttonRestar.Left = 175;
+ buttonRestar.Top = 100;
+ this.Controls.Add(buttonRestar);
+ buttonMultiplicar = new Button();
+ buttonMultiplicar.Click += new EventHandler(ButtonMultiplicarClick);
+ buttonMultiplicar.Text = "Multiplicar";
+ buttonMultiplicar.Left = 50;
+ buttonMultiplicar.Top = 150;
+ this.Controls.Add(buttonMultiplicar);
+ buttonDividir = new Button();
+ buttonDividir.Click += new EventHandler(ButtonDividirClick);
+ buttonDividir.Text = "Dividir";
+ buttonDividir.Left = 175;
+ buttonDividir.Top = 150;
+ this.Controls.Add(buttonDividir);
+
+ Label labelA = new Label();
+ labelA.Text = "a =";
+ labelA.Left = 80;
+ labelA.Top = 20;
+ this.Controls.Add(labelA);
+
+ Label labelB = new Label();
+ labelB.Text = "b =";
+ labelB.Left = 80;
+ labelB.Top = 40;
+ this.Controls.Add(labelB);
+
+ Label labelC = new Label();
+ labelC.Text = "c =";
+ labelC.Left = 80;
+ labelC.Top = 60;
+ this.Controls.Add(labelC);
+ } 
+void ButtonSumarClick(object emisor, EventArgs e)
+ {
+ double a = Convert.ToDouble(textNumero1.Text);
+ double b = Convert.ToDouble(textNumero2.Text);
+ double c = a + b;
+ labelResultado.Text = c.ToString();
+ }
+ void ButtonRestarClick(object emisor, EventArgs e)
+ {
+ double a = Convert.ToDouble(textNumero1.Text);
+ double b = Convert.ToDouble(textNumero2.Text);
+ double c = a - b;
+ labelResultado.Text = c.ToString();
+ }
+
+void ButtonMultiplicarClick(object emisor, EventArgs e)
+ {
+ double a = Convert.ToDouble(textNumero1.Text);
+ double b = Convert.ToDouble(textNumero2.Text);
+ double c = a * b;
+ labelResultado.Text = c.ToString();
+ }
+
+void ButtonDividirClick(object emisor, EventArgs e)
+ {
+ double a = Convert.ToDouble(textNumero1.Text);
+ double b = Convert.ToDouble(textNumero2.Text);
+
+ if (b != 0)
+ {
+ double c = a / b;
+ labelResultado.Text = c.ToString();
+ }
+ else
+ labelResultado.Text = "(Error...)";
+ }
+}
