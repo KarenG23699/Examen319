@@ -1,0 +1,13 @@
+from pyswip import Prolog
+prolog = Prolog()
+
+prolog.assertz("abuelo(juan, maria)")
+prolog.assertz("nieto(maria, juan)")
+prolog.assertz("primo(jose, maria)")
+
+for elemento in prolog.query("abuelo(Z,Y)"):
+  print(elemento["X"], "es el abuelo de ",elemento["Y"])
+for elemento in prolog.query("nieto(T,Z)"):
+  print(elemento["T"], "es el nieto de ",elemento["Z"])
+for elemento in prolog.query("primo(A,B)"):
+  print(elemento["A"], "es el primo de ",elemento["B"])
